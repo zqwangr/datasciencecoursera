@@ -1,4 +1,4 @@
- corr <- function(directory, threshold=1) {
+ corr <- function(directory, threshold=0) {
  setwd(directory)
  
  allfiles<-dir(directory)
@@ -12,7 +12,7 @@
      
      csum<-sum(as.numeric(complete.cases(indata)))
      
-     if (csum >= threshold)
+     if (csum > threshold)
      {  
          ##attach(indata)
          corroutput <- c(corroutput, cor(indata$sulfate, indata$nitrate, use = "complete.obs"))
